@@ -501,7 +501,6 @@ When you finished that tutorial, open a file in your home directory and manipula
 **How do you save a buffer to a new filename from within `vim`?**
 <details>
     <summary>Your Answer</summary>
-    .....
 
 (Write) :w initiated under that you can save Data. The name of the Data packet is write after that commant.
 
