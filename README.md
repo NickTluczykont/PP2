@@ -542,8 +542,9 @@ When you finished that tutorial, open a file in your home directory and manipula
 <details>
     <summary>Your Answer</summary>
     .....
-</details>
- 
+
+(Write) :w initiated under that you can save Data. The name of the Data packet is write after that commant.
+
 
 ---
 
